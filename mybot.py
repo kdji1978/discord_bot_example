@@ -44,9 +44,9 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello Arg!')
 
-    if message.content.startswith('$question'):
+    if message.content.strip():
         print(f"Message: {message.content}")                
-        message_content = message.content.split("$question")[1]
+        message_content = message.content
         print(f"Question: {message_content}")    
         response = call_openai(message_content)   
         print(f"Assistant: {response}")    
